@@ -1,38 +1,147 @@
-.App {
+/* App.css */
+
+/* Add a background image to the entire page */
+body {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYjyFs2WCRHPbfL8oont8kxZTycTPPqeSmWA&usqp=CAU');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+}
+
+/* Style the login container */
+.login-container {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  padding: 20px;
   text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 100%; /* Adjust the width as needed */
+  max-width: 400px; /* Add a max-width to control the maximum size */
+  height:40%
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Style the login form */
+.login-form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+/* Style the input fields */
+.login-input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Style the login button */
+.login-button {
+  background-color: #007bff;
   color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease, color 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.login-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: #fff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.login-button:focus {
+  outline: none;
 }
+
+/* Style the error message */
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+/* Admin.css */
+
+/* Admin.css */
+
+.admin-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10%;
+    background-color: silver;
+}
+
+.admin-heading {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.admin-form label {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.admin-form input[type="text"],
+.admin-form textarea {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #0a0a0a;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+.admin-form textarea {
+  height: 150px;
+}
+
+.admin-form button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 3px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-left: 300px;
+  margin-bottom: 30px;
+}
+
+.admin-form button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+.blog_css{
+  justify-content: center;
+}
+.input-border{
+  border: 10px;
+  margin-left: 20px;
+}
+
+
+/* Home.css */
+
+/* Home.css */
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+}
+
+
+
