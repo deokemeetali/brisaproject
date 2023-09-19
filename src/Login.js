@@ -2,6 +2,7 @@ import React, {  useState } from 'react';
 import './login.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import MainPages from './mainpage';
 
 
 function Login({toggleSignup}) {
@@ -58,8 +59,11 @@ function Login({toggleSignup}) {
       console.log(response.data.s);
         // setUsers(response.data)
         if(response.data.username){
-          sessionStorage.setItem('userId', response.data._id);
-          navigate(`/home/${response.data.username}`);
+          console.log(response.data);
+         
+          sessionStorage.setItem('userDetails',  JSON.stringify(response.data));
+          debugger;
+          navigate("/mainpage");
           
         }
 
@@ -91,7 +95,7 @@ function Login({toggleSignup}) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit" className="login-button"> {/* Use type="submit" for the button */}
+        <button type="submit" className="login-button"> 
           Login
         </button>
         <p className='login-p'>

@@ -27,7 +27,7 @@
     height: 100vh;
     padding: 20px;
     background-color:darkcyan;
-    width: 20vw;
+    width: 250px;
   }
   
   .button-css {
@@ -124,4 +124,22 @@
   .heading_blog{
     margin-left: 480px;
   }
-  
+  .sidemainclass{
+    display: grid;
+    grid-template-columns: repeat(10, 1fr); 
+   
+  }
+  .side2{
+    grid-column: span 2; 
+    background-color: black; 
+    height: 100vh; 
+    padding-left: 2px;
+    border: 5px solid rgb(147, 117, 78);
+  }
+  .side3{
+    grid-column: span 8; 
+      /* background-color:aqua; */
+      height: 100vh; 
+      padding-left: 2px;
+  }
+   

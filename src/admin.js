@@ -7,11 +7,11 @@ function Admin(){
     const handleSubmit=(e)=>{
       
         e.preventDefault();
-        const userId = sessionStorage.getItem('userId'); 
+        const userId = sessionStorage.getItem('userDetails'); 
         const data = {
             title,
             description,
-            author:userId
+            author:userId.username
           };
           
         axios.post('http://127.0.0.1:4000/api/posts',data)
