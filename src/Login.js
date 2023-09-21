@@ -2,10 +2,11 @@ import React, {  useState } from 'react';
 import './login.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import MainPages from './mainpage';
+// import MainPages from './mainpage';
 
 
-function Login({toggleSignup}) {
+
+function Login(props) {
   
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -63,6 +64,7 @@ function Login({toggleSignup}) {
          
           sessionStorage.setItem('userDetails',  JSON.stringify(response.data));
           debugger;
+          props.onLogin();
           navigate("/mainpage");
           
         }
@@ -73,7 +75,7 @@ function Login({toggleSignup}) {
         console.log('Error fetching users:', error);
       });
    
-    
+    //commrnyokjojh
 
   };
 
@@ -100,7 +102,7 @@ function Login({toggleSignup}) {
         </button>
         <p className='login-p'>
           Don't have an account?{' '}<span
-          className='login-span' onClick={toggleSignup} style={{cursor:'pointer'}}>sign up</span>
+          className='login-span' onClick={()=>{props.togglesignup()}} style={{cursor:'pointer'}}>sign up</span>
         </p>
       </form>
        <div className="login-error-message">{loginError}</div>

@@ -8,11 +8,15 @@ const Navpage=()=>{
         <>
         <section>
           <div>
-          <Routes>
-         
+          
+            <Routes>
+              
+          <Route path="/" element={<Blog />} />
          <Route path="/admin" element={<Admin/>}/>  
          <Route path="/blog" element={<Blog/>}/>  
-         </Routes> 
+         </Routes>
+          
+           
           </div>
          
         </section>

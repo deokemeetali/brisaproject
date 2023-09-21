@@ -1,33 +1,59 @@
+// App.js
 import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './Login';
 import Signup from './signup';
 import MainPages from './mainpage';
 import Admin from './admin';
 import Blog from './blog';
-import './App.css';
 
 function App() {
-  const [showLogin, setShowLogin] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [showLogin,setShowLogin]=useState(true);
+  const togglesignup=()=>{
+    setShowLogin(!showLogin)
+  }
+ 
 
-  const toggleSignup = () => {
-    setShowLogin(!showLogin);
+  const handleLogin = () => {
+    
+    setIsAuthenticated(true);
   };
 
+
+  
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={showLogin ? <Login toggleSignup={toggleSignup} /> : <Signup toggleSignup={toggleSignup} />} />
         <Route
-    path="/mainpage"
-    element={
-      <MainPages>
-        <Route index element={<Blog />} />
-        <Route path="admin" element={<Admin />} />
-        <Route path="blog" element={<Blog />} />
-      </MainPages>
-    }
-  />
+          path="/"
+          element={showLogin ?
+            (isAuthenticated ? (
+              <Navigate to="/mainpage" />
+            ) : (
+              <Login onLogin={handleLogin} togglesignup={togglesignup}/>
+            ))
+            :
+        
+           ( isAuthenticated ? (
+              <Navigate to="/mainpage" />
+            ) : (
+              <Signup onLogin={handleLogin} togglesignup={togglesignup} />
+            ))
+            }
+        />
+        <Route
+          path="/mainpage"
+          element={isAuthenticated ? <MainPages /> : <Navigate to="/" />}
+        />
+        <Route
+          path="/admin"
+          element={isAuthenticated ? <Admin /> : <Navigate to="/" />}
+        />
+        <Route
+          path="/blog"
+          element={isAuthenticated ? <Blog /> : <Navigate to="/" />}
+        />
       </Routes>
     </BrowserRouter>
   );

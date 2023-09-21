@@ -70,7 +70,7 @@
     max-width: 400px;
     width: 100%;
     transition: background-color 0.3s ease;
-    margin-left: 500px;
+    margin-left: 100px;
   }
   
   .blog-post h3 {
@@ -122,7 +122,7 @@
     margin: 0;
   }
   .heading_blog{
-    margin-left: 480px;
+    margin-left: 100px;
   }
   .sidemainclass{
     display: grid;
@@ -134,7 +134,7 @@
     background-color: black; 
     height: 100vh; 
     padding-left: 2px;
-    border: 5px solid rgb(147, 117, 78);
+    border: 5px solid black
   }
   .side3{
     grid-column: span 8; 
@@ -142,4 +142,23 @@
       height: 100vh; 
       padding-left: 2px;
   }
-   
+  @media screen and (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .head {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .heading_blog {
+      margin-left: 0; /* Reset margin for smaller screens */
+      margin-top: 10px;
+    }
+  
+    .blog-post {
+      margin-left: 0; /* Reset margin for smaller screens */
+    }
+  }
