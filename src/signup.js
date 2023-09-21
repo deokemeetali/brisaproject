@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import './signup.css';
 
 
-const Signup = ({ toggleSignup }) => {
+const Signup = ( props ) => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -56,7 +56,8 @@ const Signup = ({ toggleSignup }) => {
         .then((response) => {
           console.log('Response status:', response.status);
           if (response.status === 200) {
-            navigate(`/home/${response.data.username}`);
+            props.onLogin();
+            navigate('/mainpage');
           } else {
             console.log('failed to post');
           }
@@ -100,7 +101,7 @@ const Signup = ({ toggleSignup }) => {
         </button>
         <p className='signup-p'>
           Already have an account?{' '}
-          <span className="signup-span" onClick={toggleSignup} style={{ cursor: 'pointer' }}>
+          <span className="signup-span" onClick={()=>{props.togglesignup()}} style={{ cursor: 'pointer' }}>
             Log In
           </span>
         </p>

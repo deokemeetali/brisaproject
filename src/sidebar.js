@@ -12,7 +12,6 @@ const Sidebar = () => {
                             <Link to="/admin" className="button-css">Admin</Link>
                         <br></br>
                         <br></br>
-                        <br></br>
                         <Link to="/blog" className="button-css">Blog</Link>
     
                 </div>

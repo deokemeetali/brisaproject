@@ -1,33 +1,27 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 import Navbar from './navbar';
 import Sidebar from './sidebar';
-import { Routes, Route } from 'react-router-dom';
-import Admin from './admin';
-import Blog from './blog';
+import Navpage from './navpage';
 
 const MainPages = () => {
   return (
-    <>
-      <section>
-        <div>
-          <Navbar />
+    <div>
+     
+      <Navbar />
+      <div className='sidemainclass'>
+        {/* Sidebar component */}
+        <div className='side2'>
+          <Sidebar />
         </div>
-      </section>
-      <section>
-        <div className='sidemainclass'>
-          <div className='side2'>
-            <Sidebar />
-          </div>
-          <div className='side3'>
-            <Routes>
-            <Route index element={<Blog />} />
-              <Route path="/admin" element={<Admin />} />
-              <Route path="/blog" element={<Blog />} />
-            </Routes>
-          </div>
+
+        {/* Outlet for child routes */}
+        <div className='side3'>
+        <Navpage />
+          <Outlet />
         </div>
-      </section>
-    </>
+      </div>
+    </div>
   );
 };
 
