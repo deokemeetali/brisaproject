@@ -15,7 +15,7 @@ function Admin(){
           };
           console.log(userId.username);
           
-        axios.post('http://127.0.0.1:4000/api/posts',data)
+        axios.post('https://blogapp-api-lxve.onrender.com/api/posts',data)
         .then(response=>{
             if(response.status===201){
 

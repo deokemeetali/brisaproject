@@ -54,7 +54,7 @@ function Login(props) {
     }
     const data = {username,password};
     
-    axios.post('http://127.0.0.1:4000/api/login',data)
+    axios.post('https://blogapp-api-lxve.onrender.com/api/login',data)
     
     .then(response => {
       console.log(response.data.s);

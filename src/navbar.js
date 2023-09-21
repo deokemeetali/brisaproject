@@ -21,6 +21,7 @@ function Navbar({onLogout}){
             <nav className='head'>
               <h2 className='home-heading-style'> Welcome, {username}!</h2>
               <button className="button-css" onClick={handleLogout}>Logout</button>
+              
             </nav>
           </div>
       )    

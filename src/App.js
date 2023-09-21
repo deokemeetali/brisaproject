@@ -47,10 +47,11 @@ function App() {
             }
         />
         <Route
+        
           path="/mainpage"
           element={isAuthenticated ? <MainPages onLogout={handlelogout} /> : <Navigate to="/" />}
         />
-        
+         
         <Route
           path="/admin"
           element={isAuthenticated ? <Admin /> : <Navigate to="/" />}

@@ -52,7 +52,7 @@ const Signup = ( props ) => {
     
   
       axios
-        .post('http://127.0.0.1:4000/users/register', data)
+        .post('https://blogapp-api-lxve.onrender.com/users/register', data)
         .then((response) => {
           console.log('Response status:', response.status);
           if (response.status === 200) {
