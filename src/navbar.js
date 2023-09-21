@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./home.css";
-function Navbar(){
+function Navbar({onLogout}){
     const [username, setUsername] = useState(false);
     const navigate = useNavigate();
     useEffect(() => {
@@ -10,7 +10,10 @@ function Navbar(){
         setUsername(userObj.username);
       }, []);
       const handleLogout = () => {
+        onLogout();
+        
         navigate("/");
+         
       }
       return (
         

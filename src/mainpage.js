@@ -4,20 +4,20 @@ import Navbar from './navbar';
 import Sidebar from './sidebar';
 import Navpage from './navpage';
 
-const MainPages = () => {
+const MainPages = ({onLogout}) => {
   return (
     <div>
      
-      <Navbar />
+      <Navbar onLogout={onLogout} />
       <div className='sidemainclass'>
-        {/* Sidebar component */}
+      
         <div className='side2'>
           <Sidebar />
         </div>
 
-        {/* Outlet for child routes */}
+       
         <div className='side3'>
-        <Navpage />
+        <Navpage  />
           <Outlet />
         </div>
       </div>

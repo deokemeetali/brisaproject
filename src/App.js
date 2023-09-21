@@ -7,6 +7,7 @@ import MainPages from './mainpage';
 import Admin from './admin';
 import Blog from './blog';
 
+
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [showLogin,setShowLogin]=useState(true);
@@ -19,6 +20,9 @@ function App() {
     
     setIsAuthenticated(true);
   };
+  const handlelogout=()=>{
+    setIsAuthenticated(false)
+  }
 
 
   
@@ -44,8 +48,9 @@ function App() {
         />
         <Route
           path="/mainpage"
-          element={isAuthenticated ? <MainPages /> : <Navigate to="/" />}
+          element={isAuthenticated ? <MainPages onLogout={handlelogout} /> : <Navigate to="/" />}
         />
+        
         <Route
           path="/admin"
           element={isAuthenticated ? <Admin /> : <Navigate to="/" />}
