@@ -78,25 +78,9 @@ function Login(props) {
     //commrnyokjojh
 
   };
-  
-  const handleGoogleLogin = () => {
-
-    window.location.href = ' https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&response_type=code&client_id=http%3A%2F%2F166868863171-3jc87rbv266kcefu4f2jqjlhsqrbfm1p.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Ffrontend-x0qa.onrender.com';
-  };
-
-  const handleGitHubLogin = () => {
-   
-    // window.location.href = 'URL_TO_GITHUB_OAUTH_AUTHORIZATION';
-    fetch('https://blogapp-api-lxve.onrender.com/github-auth') 
-    .then((response) => response.json())
-    .then((data) => {
-      
-      window.location.href = data.githubAuthUrl; 
-    })
-    .catch((error) => {
-      console.error('Error fetching GitHub authorization URL:', error);
-    });
-  };
+  const handleGoogleLogin = ()=>{
+    window.location.href = 'https://blogapp-api-lxve.onrender.com/auth/google';
+  }
 
   return (
     <div className="login-container">
@@ -125,14 +109,8 @@ function Login(props) {
         </p>
       </form>
        <div className="login-error-message">{loginError}</div>
-       <div className="oauth-buttons">
-        <button className="login-button" onClick={handleGoogleLogin}>
-          Continue with Google
-        </button>
-        <button className="login-button" onClick={handleGitHubLogin}>
-          Continue with GitHub
-        </button>
-      </div>
+       <button onClick={handleGoogleLogin}>Log in with Google</button>
+       
     </div>
   );
 }
