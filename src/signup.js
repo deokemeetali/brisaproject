@@ -66,6 +66,25 @@ const Signup = ( props ) => {
   };
 
   // Update the button disabled state based on validation
+  const handleGoogleSignup = () => {
+
+    window.location.href = ' https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&response_type=code&client_id=http%3A%2F%2F166868863171-3jc87rbv266kcefu4f2jqjlhsqrbfm1p.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Ffrontend-x0qa.onrender.com';
+  };
+
+  const handleGitHubSignup = () => {
+  
+    // window.location.href = 'URL_TO_GITHUB_OAUTH_AUTHORIZATION';
+    fetch('https://blogapp-api-lxve.onrender.com/github-auth') 
+    .then((response) => response.json())
+    .then((data) => {
+      
+      window.location.href = data.githubAuthUrl; 
+    })
+    .catch((error) => {
+      console.error('Error fetching GitHub authorization URL:', error);
+    });
+  };
+
   
 
   return (
@@ -107,7 +126,16 @@ const Signup = ( props ) => {
         </p>
       </form>
       <div className="signup-error-message">{loginError}</div>
+      <div className="oauth-buttons">
+        <button className="signup-button" onClick={handleGoogleSignup}>
+          Sign Up with Google
+        </button>
+        <button className="signup-button" onClick={handleGitHubSignup}>
+          Sign Up with GitHub
+        </button>
+      </div>
     </div>
+    
   );
 };
 
