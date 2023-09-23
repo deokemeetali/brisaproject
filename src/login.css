@@ -57,3 +57,8 @@
   color: red;
   margin-top: 10px;
 }
+.oauth-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}

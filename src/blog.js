@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 function Blog() {
-  const [posts, setPosts] = useState([]);
+  // const [posts, setPosts] = useState([]);
   const [blogData, setBlogData] = useState([]);
   useEffect(() => {
     let userObj = JSON.parse(sessionStorage.getItem("userDetails"));
@@ -12,7 +12,7 @@ function Blog() {
 
     axios.get(`https://blogapp-api-lxve.onrender.com/api/posts?userId=${userObj._id}`)
       .then(response => {
-        setPosts(response.data); 
+        // setPosts(response.data); 
         setBlogData(response.data);
       })
       .catch(error => {
