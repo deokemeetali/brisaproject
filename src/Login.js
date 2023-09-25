@@ -78,23 +78,35 @@ function Login(props) {
     //commrnyokjojh
 
   };
-  // const data = {username,password};
-  // axios.post('https://blogapp-api-lxve.onrender.com/auth/google/callback', data)
-  // .then(response => {
-  //   if (response.data.success) {
-  //     // Successful authentication, redirect to dashboard
-  //     navigate('/mainpage');
-  //   } else {
-  //     // Authentication failed, redirect to login
-  //     navigate('/');
-  //   }
-  // })
-  // .catch(error => {
-  //   console.log('Error fetching users:', error);
-  // });
+  
   const handleGoogleLogin = ()=>{
     window.location.href = 'https://blogapp-api-lxve.onrender.com/auth/google';
   }
+  useEffect(() => {
+    const userAccessToken = sessionStorage.getItem('userAccessToken');
+
+    if (userAccessToken) {
+      // Call the checkAccessToken function with the user's access token
+      checkAccessToken(userAccessToken);
+    }
+  }, []);
+
+  // Add the checkAccessToken function here
+  const checkAccessToken = async (accessToken) => {
+    try {
+      const response = await axios.get(`'https://blogapp-api-lxve.onrender.com/api/checkAccessToken?accessToken=${accessToken}`);
+      if (response.status === 200) {
+        // Access token is valid, navigate to the main page
+        window.location.href = '/mainpage';
+      } else {
+        // Access token is invalid, handle it (e.g., redirect to login)
+        window.location.href = '/';
+      }
+    } catch (error) {
+      console.error('Error checking access token:', error);
+      // Handle the error appropriately
+    }
+  };
 
   return (
     <div className="login-container">
