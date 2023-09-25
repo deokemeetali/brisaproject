@@ -78,6 +78,19 @@ function Login(props) {
     //commrnyokjojh
 
   };
+  axios.post('/auth/google/callback', data)
+  .then(response => {
+    if (response.data.success) {
+      // Successful authentication, redirect to dashboard
+      navigate('/mainpage');
+    } else {
+      // Authentication failed, redirect to login
+      navigate('/');
+    }
+  })
+  .catch(error => {
+    console.log('Error fetching users:', error);
+  });
   const handleGoogleLogin = ()=>{
     window.location.href = 'https://blogapp-api-lxve.onrender.com/auth/google';
   }
