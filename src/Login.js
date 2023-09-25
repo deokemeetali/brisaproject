@@ -79,7 +79,7 @@ function Login(props) {
 
   };
   const data = {username,password};
-  axios.post('/auth/google/callback', data)
+  axios.post('https://blogapp-api-lxve.onrender.com/auth/google/callback', data)
   .then(response => {
     if (response.data.success) {
       // Successful authentication, redirect to dashboard
