@@ -78,6 +78,7 @@ function Login(props) {
     //commrnyokjojh
 
   };
+  const data = {username,password};
   axios.post('/auth/google/callback', data)
   .then(response => {
     if (response.data.success) {
