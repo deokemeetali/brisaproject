@@ -89,9 +89,9 @@ function Login(props) {
   //     navigate('/');
   //   }
   // })
-  .catch(error => {
-    console.log('Error fetching users:', error);
-  });
+  // .catch(error => {
+  //   console.log('Error fetching users:', error);
+  // });
   const handleGoogleLogin = ()=>{
     window.location.href = 'https://blogapp-api-lxve.onrender.com/auth/google';
   }
