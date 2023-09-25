@@ -78,17 +78,17 @@ function Login(props) {
     //commrnyokjojh
 
   };
-  const data = {username,password};
-  axios.post('https://blogapp-api-lxve.onrender.com/auth/google/callback', data)
-  .then(response => {
-    if (response.data.success) {
-      // Successful authentication, redirect to dashboard
-      navigate('/mainpage');
-    } else {
-      // Authentication failed, redirect to login
-      navigate('/');
-    }
-  })
+  // const data = {username,password};
+  // axios.post('https://blogapp-api-lxve.onrender.com/auth/google/callback', data)
+  // .then(response => {
+  //   if (response.data.success) {
+  //     // Successful authentication, redirect to dashboard
+  //     navigate('/mainpage');
+  //   } else {
+  //     // Authentication failed, redirect to login
+  //     navigate('/');
+  //   }
+  // })
   .catch(error => {
     console.log('Error fetching users:', error);
   });
