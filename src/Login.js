@@ -80,7 +80,16 @@ function Login(props) {
   };
   
   const handleGoogleLogin = ()=>{
-    window.location.href = 'https://blogapp-api-lxve.onrender.com/auth/google';
+    // window.location.href = 'https://blogapp-api-lxve.onrender.com/auth/google';
+    axios.get('https://blogapp-api-lxve.onrender.com/auth/google')
+    .then(response=>{
+      if(response.data){
+        navigate('/mainpage');
+
+      }else{
+        navigate('/');
+      }
+    })
     
   }
  axios.get('https://blogapp-api-lxve.onrender.com/auth/google/callback')
