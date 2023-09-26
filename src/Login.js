@@ -91,7 +91,7 @@ function Login(props) {
       }else{
         navigate('/');
       }
-  })))
+  })),[])
  axios.get('https://blogapp-api-lxve.onrender.com/auth/google/callback')
   return (
     <div className="login-container">
