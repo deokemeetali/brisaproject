@@ -82,33 +82,7 @@ function Login(props) {
   const handleGoogleLogin = ()=>{
     window.location.href = 'https://blogapp-api-lxve.onrender.com/auth/google';
   }
-  useEffect(() => {
-    const userAccessToken = sessionStorage.getItem('userAccessToken');
-
-    if (userAccessToken) {
-  
-      checkAccessToken(userAccessToken);
-    }
-  }, []);
-
  
-  const checkAccessToken = async (accessToken) => {
-    try {
-      const response = await axios.get(`'https://blogapp-api-lxve.onrender.com/api/checkAccessToken?accessToken=${accessToken}`);
-      console.log(response.data);
-      if (response.status === 200) {
-      
-        window.location.href = '/mainpage';
-      } else {
-        
-        window.location.href = '/';
-      }
-    } catch (error) {
-      console.error('Error checking access token:', error);
-     
-    }
-  };
-
   return (
     <div className="login-container">
       <h2 className='login-heading'>Login</h2>
