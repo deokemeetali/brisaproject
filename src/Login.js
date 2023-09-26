@@ -1,7 +1,7 @@
 import React, {  useState } from 'react';
 import './login.css';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,useHistory } from 'react-router-dom';
 // import MainPages from './mainpage';
 
 
@@ -11,8 +11,10 @@ function Login(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState('');
+  const [userProfile, setUserProfile] = useState(null);
 
   const navigate = useNavigate();
+  const history = useHistory();
   
    const handleValidation=()=>{
     if(!username && !password){
@@ -81,18 +83,20 @@ function Login(props) {
   
   const handleGoogleLogin = ()=>{
     window.location.href = 'https://blogapp-api-lxve.onrender.com/auth/google';
-    // axios.get('https://blogapp-api-lxve.onrender.com/auth/google')
-    // .then(response=>{
-    //   if(response.data){
-    //     navigate('/mainpage');
-
-    //   }else{
-    //     navigate('/');
-    //   }
-    // })
     
   }
- axios.get('https://blogapp-api-lxve.onrender.com/auth/google/callback')
+  useEffect(() => {
+
+    axios.get('https://blogapp-api-lxve.onrender.com/mainpage')
+      .then((response) => {
+        setUserProfile(response.data.userProfile);
+        history.push('/mainpage');
+      })
+      .catch((error) => {
+        console.error('Error fetching userProfile:', error);
+      });
+  }, [history]);
+
   return (
     <div className="login-container">
       <h2 className='login-heading'>Login</h2>
