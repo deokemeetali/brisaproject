@@ -81,8 +81,17 @@ function Login(props) {
   
   const handleGoogleLogin = ()=>{
     window.location.href = 'https://blogapp-api-lxve.onrender.com/auth/google';
+    axios.get('https://blogapp-api-lxve.onrender.com/auth/google/callback')
+    .then(res=>
+      {
+        if (res.data._id){
+          navigate('/mainpage');
+        }else{
+          navigate('/');
+        }
+    })
   }
- 
+ axios.get('https://blogapp-api-lxve.onrender.com/auth/google/callback')
   return (
     <div className="login-container">
       <h2 className='login-heading'>Login</h2>
