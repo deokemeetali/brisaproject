@@ -1,4 +1,4 @@
-import React, {  useState ,useEffect} from 'react';
+import React, {  useState } from 'react';
 import './login.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -83,15 +83,7 @@ function Login(props) {
     window.location.href = 'https://blogapp-api-lxve.onrender.com/auth/google';
    
   }
-  useEffect(( axios.get('https://blogapp-api-lxve.onrender.com/auth/google/callback')
-  .then(res=>
-    {
-      if (res.data._id){
-        navigate('/mainpage');
-      }else{
-        navigate('/');
-      }
-  })),[])
+
  axios.get('https://blogapp-api-lxve.onrender.com/auth/google/callback')
   return (
     <div className="login-container">
