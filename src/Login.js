@@ -1,4 +1,4 @@
-import React, {  useState ,useEffect} from 'react';
+import React, {  useState } from 'react';
 import './login.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -80,16 +80,16 @@ function Login(props) {
   };
   
   const handleGoogleLogin = ()=>{
-    // window.location.href = 'https://blogapp-api-lxve.onrender.com/auth/google';
-    axios.get('https://blogapp-api-lxve.onrender.com/auth/google')
-    .then(response=>{
-      if(response.data){
-        navigate('/mainpage');
+    window.location.href = 'https://blogapp-api-lxve.onrender.com/auth/google';
+    // axios.get('https://blogapp-api-lxve.onrender.com/auth/google')
+    // .then(response=>{
+    //   if(response.data){
+    //     navigate('/mainpage');
 
-      }else{
-        navigate('/');
-      }
-    })
+    //   }else{
+    //     navigate('/');
+    //   }
+    // })
     
   }
  axios.get('https://blogapp-api-lxve.onrender.com/auth/google/callback')
