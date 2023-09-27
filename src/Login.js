@@ -1,4 +1,4 @@
-import React, {  useState } from 'react';
+import React, {  useState,useEffect } from 'react';
 import './login.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -95,7 +95,7 @@ function Login(props) {
       .catch((error) => {
         console.error('Error fetching userProfile:', error);
       });
-  }, [history]);
+  }, []);
 
   return (
     <div className="login-container">
