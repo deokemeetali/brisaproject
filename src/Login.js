@@ -1,7 +1,7 @@
 import React, {  useState } from 'react';
 import './login.css';
 import axios from 'axios';
-import { useNavigate,useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 // import MainPages from './mainpage';
 
 
@@ -14,7 +14,7 @@ function Login(props) {
   const [userProfile, setUserProfile] = useState(null);
 
   const navigate = useNavigate();
-  const history = useHistory();
+  // const history = useHistory();
   
    const handleValidation=()=>{
     if(!username && !password){
@@ -90,7 +90,7 @@ function Login(props) {
     axios.get('https://blogapp-api-lxve.onrender.com/mainpage')
       .then((response) => {
         setUserProfile(response.data.userProfile);
-        history.push('/mainpage');
+        navigate("/mainpage");
       })
       .catch((error) => {
         console.error('Error fetching userProfile:', error);
